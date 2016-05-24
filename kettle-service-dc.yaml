@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    app: kettle-service
+  name: kettle-service
+spec:
+  replicas: 1
+  selector:
+    app: kettle-service
+  strategy:
+    resources: {}
+  template:
+    metadata:
+      labels:
+        app: kettle-service
+    spec:
+      containers:
+      - image: registry.dataos.io/guestbook/kettle-service
+        imagePullPolicy: Always
+        name: kettle-service
+        ports:
+        - containerPort: 8181
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+  test: false
+  triggers:
+  - type: ConfigChange
+status: {}
