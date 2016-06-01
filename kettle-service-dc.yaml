@@ -24,7 +24,7 @@ spec:
         - #username#
         - #userpass#
         ports:
-        - containerPort: 8181
+        - containerPort: 8080
           protocol: TCP
         resources: {}
         terminationMessagePath: /dev/termination-log
