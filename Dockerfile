@@ -21,6 +21,6 @@ RUN tar -xzf mysql-connector-java-5.1.38.tar.gz \
 
 WORKDIR /data-integration
 
-EXPOSE 8181
+EXPOSE 8080
 
 CMD ["/start.sh"]
