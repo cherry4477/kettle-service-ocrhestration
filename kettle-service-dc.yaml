@@ -19,6 +19,10 @@ spec:
       - image: registry.dataos.io/guestbook/kettle-service
         imagePullPolicy: Always
         name: kettle-service
+        args:
+        - /start.sh
+        - #username#
+        - #userpass#
         ports:
         - containerPort: 8181
           protocol: TCP
