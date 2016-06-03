@@ -68,19 +68,21 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;03&#x2f;16 16&#x3a;15&#x3a;29.505</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;05&#x2f;21 17&#x3a;38&#x3a;00.551</modified_date>
+  <modified_date>2016&#x2f;06&#x2f;04 01&#x3a;08&#x3a;30.450</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <connection>
     <name>mysql</name>
-    <server>&#x24;&#x7b;BSI_MYSQLINST_HOST&#x7d;</server>
+    <server>&#x24;&#x7b;BSI_MYSQL_MYSQLINST_HOST&#x7d;</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>&#x24;&#x7b;BSI_MYSQLINST_NAME&#x7d;</database>
-    <port>&#x24;&#x7b;BSI_MYSQLINST_PORT&#x7d;</port>
-    <username>&#x24;&#x7b;BSI_MYSQLINST_USERNAME&#x7d;</username>
-    <password>&#x24;&#x7b;BSI_MYSQLINST_PASSWORD&#x7d;</password>
+    <database>&#x24;&#x7b;BSI_MYSQL_MYSQLINST_NAME&#x7d;</database>
+    <port>&#x24;&#x7b;BSI_MYSQL_MYSQLINST_PORT&#x7d;</port>
+    <username>&#x24;&#x7b;BSI_MYSQL_MYSQLINST_USERNAME&#x7d;</username>
+    <password>&#x24;&#x7b;BSI_MYSQL_MYSQLINST_PASSWORD&#x7d;</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -90,7 +92,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;BSI_MYSQLINST_PORT&#x7d;</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;BSI_MYSQL_MYSQLINST_PORT&#x7d;</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
@@ -101,13 +103,13 @@
   </connection>
   <connection>
     <name>postgresql</name>
-    <server>&#x24;&#x7b;BSI_POSTGRESQLINST_HOST&#x7d;</server>
+    <server>&#x24;&#x7b;BSI_POSTGRESQL_POSTGRESQLINST_HOST&#x7d;</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>&#x24;&#x7b;BSI_POSTGRESQLINST_NAME&#x7d;</database>
-    <port>&#x24;&#x7b;BSI_POSTGRESQLINST_PORT&#x7d;</port>
-    <username>&#x24;&#x7b;BSI_POSTGRESQLINST_USERNAME&#x7d;</username>
-    <password>&#x24;&#x7b;BSI_POSTGRESQLINST_PASSWORD&#x7d;</password>
+    <database>&#x24;&#x7b;BSI_POSTGRESQL_POSTGRESQLINST_NAME&#x7d;</database>
+    <port>&#x24;&#x7b;BSI_POSTGRESQL_POSTGRESQLINST_PORT&#x7d;</port>
+    <username>&#x24;&#x7b;BSI_POSTGRESQL_POSTGRESQLINST_USERNAME&#x7d;</username>
+    <password>&#x24;&#x7b;BSI_POSTGRESQL_POSTGRESQLINST_PASSWORD&#x7d;</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -115,7 +117,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;BSI_POSTGRESQLINST_PORT&#x7d;</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;BSI_POSTGRESQL_POSTGRESQLINST_PORT&#x7d;</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -130,38 +132,6 @@
   <hop> <from>waiting_for_create_source_data</from><to>data_source</to><enabled>Y</enabled> </hop>
   <hop> <from>Get Variables</from><to>prepare_data</to><enabled>Y</enabled> </hop>
   </order>
-  <step>
-    <name>create_dest_table</name>
-    <type>ExecSQL</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>postgresql</connection>
-    <execute_each_row>Y</execute_each_row>
-    <single_statement>N</single_statement>
-    <replace_variables>Y</replace_variables>
-    <quoteString>N</quoteString>
-    <sql>CREATE TABLE  IF NOT EXISTS   app_user &#x28;id integer,username varchar&#x28;45&#x29; ,  password varchar&#x28;450&#x29;  &#x29;&#x3b;</sql>
-    <set_params>N</set_params>
-    <insert_field/>
-    <update_field/>
-    <delete_field/>
-    <read_field/>
-    <arguments>
-    </arguments>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>661</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step>
     <name>Get Variables</name>
     <type>GetVariable</type>
@@ -1672,8 +1642,8 @@
     </step>
 
   <step>
-    <name>data_source</name>
-    <type>TableInput</type>
+    <name>create_dest_table</name>
+    <type>ExecSQL</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1682,16 +1652,22 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>mysql</connection>
-    <sql>SELECT&#xa;  id&#xa;FROM te111st111_11tabl111e&#xa;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
-    <lazy_conversion_active>Y</lazy_conversion_active>
+    <connection>postgresql</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>Y</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>CREATE TABLE  IF NOT EXISTS   app_user &#x28;id integer,username varchar&#x28;45&#x29; ,  password varchar&#x28;450&#x29;  &#x29;&#x3b;</sql>
+    <set_params>N</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+    </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>472</xloc>
+      <xloc>661</xloc>
       <yloc>112</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1734,6 +1710,32 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>850</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>data_source</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>mysql</connection>
+    <sql>SELECT&#xa;  id&#xa;FROM te111st111_11tabl111e&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>Y</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>472</xloc>
       <yloc>112</yloc>
       <draw>Y</draw>
       </GUI>
