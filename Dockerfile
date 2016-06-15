@@ -1,5 +1,5 @@
 # kettle-service
-FROM library/ubuntu:14.04
+FROM library/ubuntu
 
 RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/mirrors.aliyun.com/g" /etc/apt/sources.list 
 RUN apt-get update -y && apt-get -y install software-properties-common unzip 
